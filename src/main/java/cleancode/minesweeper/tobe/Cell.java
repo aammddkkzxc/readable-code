@@ -2,10 +2,10 @@ package cleancode.minesweeper.tobe;
 
 public class Cell {
 
+    private static final String FLAG_SIGN = "⚑";
+    private static final String LAND_MINE_SIGN = "☼";
     private static final String UNCHECKED_SIGN = "□";
     private static final String EMPTY_SIGN = "■";
-    private static final String LAND_MINE_SIGN = "☼";
-    private static final String FLAG_SIGN = "⚑";
 
     private int nearbyLandMineCount;
     private boolean isLandMine;
@@ -20,7 +20,7 @@ public class Cell {
     }
 
     public static Cell of(int nearbyLandMineCount, boolean isLandMine, boolean isFlagged, boolean isOpened) {
-        return new Cell(0, false, false, false);
+        return new Cell(nearbyLandMineCount, isLandMine, isFlagged, isOpened);
     }
 
     public static Cell create() {
@@ -28,7 +28,11 @@ public class Cell {
     }
 
     public void turnOnLandMine() {
-        isLandMine = true;
+        this.isLandMine = true;
+    }
+
+    public void updateNearbyLandMineCount(int count) {
+        this.nearbyLandMineCount = count;
     }
 
     public void flag() {
@@ -36,15 +40,7 @@ public class Cell {
     }
 
     public void open() {
-        isOpened = true;
-    }
-
-    public void updateNearbyLandMineCount(int count) {
-        nearbyLandMineCount = count;
-    }
-
-    public boolean hasLandMineCount() {
-        return nearbyLandMineCount != 0;
+        this.isOpened = true;
     }
 
     public boolean isChecked() {
@@ -59,6 +55,10 @@ public class Cell {
         return isOpened;
     }
 
+    public boolean hasLandMineCount() {
+        return this.nearbyLandMineCount != 0;
+    }
+
     public String getSign() {
         if (isOpened) {
             if (isLandMine) {
@@ -67,7 +67,6 @@ public class Cell {
             if (hasLandMineCount()) {
                 return String.valueOf(nearbyLandMineCount);
             }
-
             return EMPTY_SIGN;
         }
 
@@ -77,4 +76,5 @@ public class Cell {
 
         return UNCHECKED_SIGN;
     }
+
 }
