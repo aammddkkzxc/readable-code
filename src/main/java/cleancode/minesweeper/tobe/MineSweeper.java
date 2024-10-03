@@ -5,19 +5,21 @@ import cleancode.minesweeper.tobe.game.GameRunnable;
 import cleancode.minesweeper.tobe.gamelevel.GameLevel;
 import cleancode.minesweeper.tobe.io.ConsoleInputHandler;
 import cleancode.minesweeper.tobe.io.ConsoleOutputHandler;
+import cleancode.minesweeper.tobe.io.InputHandler;
+import cleancode.minesweeper.tobe.io.OutputHandler;
 
 public class MineSweeper implements GameRunnable, GameInitializable {
 
     private final GameBoard gameBoard;
     private final BoardIndexConverter boardIndexConverter = new BoardIndexConverter();
-    private final ConsoleInputHandler consoleInputHandler = new ConsoleInputHandler();
-    private final ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler();
+    private final InputHandler consoleInputHandler;
+    private final OutputHandler consoleOutputHandler;
     private int gameStatus = 0; // 0: 게임 중, 1: 승리, -1: 패배
 
-    public MineSweeper(GameLevel gameLevel) {
-
+    public MineSweeper(GameLevel gameLevel, InputHandler consoleInputHandler, OutputHandler consoleOutputHandler) {
         gameBoard = new GameBoard(gameLevel);
-
+        this.consoleInputHandler = consoleInputHandler;
+        this.consoleOutputHandler = consoleOutputHandler;
     }
 
     @Override
