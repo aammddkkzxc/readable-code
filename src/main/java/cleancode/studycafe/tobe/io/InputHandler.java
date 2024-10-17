@@ -1,8 +1,8 @@
 package cleancode.studycafe.tobe.io;
 
 import cleancode.studycafe.tobe.exception.AppException;
-import cleancode.studycafe.tobe.model.StudyCafePass;
-import cleancode.studycafe.tobe.model.StudyCafePassType;
+import cleancode.studycafe.tobe.model.pass.seat.StudyCafeSeatPass;
+import cleancode.studycafe.tobe.model.pass.seat.StudyCafeSeatPassType;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,22 +11,22 @@ public class InputHandler {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public StudyCafePassType getPassTypeSelectingUserAction() {
+    public StudyCafeSeatPassType getPassTypeSelectingUserAction() {
         String userInput = SCANNER.nextLine();
 
         if ("1".equals(userInput)) {
-            return StudyCafePassType.HOURLY;
+            return StudyCafeSeatPassType.HOURLY;
         }
         if ("2".equals(userInput)) {
-            return StudyCafePassType.WEEKLY;
+            return StudyCafeSeatPassType.WEEKLY;
         }
         if ("3".equals(userInput)) {
-            return StudyCafePassType.FIXED;
+            return StudyCafeSeatPassType.FIXED;
         }
         throw new AppException("잘못된 입력입니다.");
     }
 
-    public StudyCafePass getSelectPass(List<StudyCafePass> passes) {
+    public StudyCafeSeatPass getSelectPass(List<StudyCafeSeatPass> passes) {
         String userInput = SCANNER.nextLine();
         int selectedIndex = Integer.parseInt(userInput) - 1;
         return passes.get(selectedIndex);
