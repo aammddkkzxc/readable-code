@@ -53,13 +53,21 @@ public class StudyCafePassMachine {
         List<StudyCafePass> allPasses = studyCafeFileHandler.readStudyCafePasses();
         
         return allPasses.stream()
-                .filter(studyCafePass -> studyCafePass.getPassType() == studyCafePassType)
+                .filter(studyCafePass -> studyCafePass.isSamePassType(studyCafePassType))
                 .toList();
     }
 
     private Optional<StudyCafeLockerPass> selectLockerPass(StudyCafePass selectedPass) {
 
-        if (selectedPass.getPassType() != StudyCafePassType.FIXED) {
+//        if (selectedPass.doesNotFixedType()) {
+//            return Optional.empty();
+//        }
+
+        /**
+         * 위에보다 아래 형태로 네이밍 하자
+         */
+
+        if (selectedPass.canNotUseLocker()) {
             return Optional.empty();
         }
 
@@ -81,10 +89,7 @@ public class StudyCafePassMachine {
         List<StudyCafeLockerPass> allLockerPasses = studyCafeFileHandler.readLockerPasses();
 
         return allLockerPasses.stream()
-                .filter(lockerPass ->
-                        lockerPass.getPassType() == pass.getPassType()
-                                && lockerPass.getDuration() == pass.getDuration()
-                )
+                .filter(pass::isSameDurationType)
                 .findFirst()
                 .orElse(null);
     }
