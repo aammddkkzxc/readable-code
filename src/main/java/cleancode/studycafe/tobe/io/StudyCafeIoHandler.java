@@ -36,7 +36,7 @@ public class StudyCafeIoHandler {
         return inputHandler.getPassTypeSelectingUserAction();
     }
 
-    public StudyCafePass askPassSelectiong(List<StudyCafePass> passCandidates) {
+    public StudyCafePass askPassSelecting(List<StudyCafePass> passCandidates) {
         outputHandler.showPassListForSelection(passCandidates);
         return inputHandler.getSelectPass(passCandidates);
     }
