@@ -28,17 +28,17 @@ public boolean validateOrder(Order order) {
 - 리팩토링 후
 ```
 public boolean validate(Order order) {
-    if (order.isEmpty) {
+    if (order.isEmpty()) {
         log.info("주문 항목이 없습니다.");
         return false;
     }
 
-    if (order.isInValidPrice) {
+    if (order.isInValidPrice()) {
         log.info("올바르지 않은 총 가격입니다.");
         return false;
     }
 
-    if (order.isInValidCustomerInfo) {
+    if (order.isInValidCustomerInfo()) {
         log.info("사용자 정보가 없습니다.");
         return false;
     }
