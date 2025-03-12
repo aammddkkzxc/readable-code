@@ -24,6 +24,7 @@
 
 ### 그 외에 궁금한 것들
 - 일급 컬렉션 두개를 한 클래스에 넣는 방법은 너무 과할까요? (AccessPasses, LockerPasses 두개를 필드로 갖는 클래스)
+  - PassMachine에서 모든 Pass데이터들을 불러들이고 검증하는 과정을 추출하고 싶은데 좋은 방법이 잘 떠오르지 않습니다
 - 요금이 pass를 통해서 나와서 pass하위 패키지에 뒀는데 분리해야할지
 - use, available, proceed, select, start 등등의 단어가 개발에서 자주 쓰이는지 혹은 어색하지 않은지
   - get~ set~를 메서드 앞에 쓰는 것은 getter나 setter를 연상할 수 있다고 생각해서 약간 병적으로 피했는데 너무 과한건지
