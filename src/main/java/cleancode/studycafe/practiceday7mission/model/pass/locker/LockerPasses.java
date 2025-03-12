@@ -1,6 +1,6 @@
-package cleancode.studycafe.practice.model.pass.locker;
+package cleancode.studycafe.practiceday7mission.model.pass.locker;
 
-import cleancode.studycafe.practice.model.pass.access.AccessPass;
+import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
 
 import java.util.List;
 
@@ -20,6 +20,6 @@ public class LockerPasses {
         return lockerPasses.stream()
                 .filter(accessPass::matchWithLockerPass)
                 .findFirst()
-                .orElse(LockerPass.disableLockerPass(accessPass));
+                .orElse(LockerPass.ofUnavailableLockerPass(accessPass));
     }
 }

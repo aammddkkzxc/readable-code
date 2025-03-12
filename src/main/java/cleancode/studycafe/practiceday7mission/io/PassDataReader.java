@@ -1,4 +1,9 @@
-package cleancode.studycafe.practice.io;
+package cleancode.studycafe.practiceday7mission.io;
+
+import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
+import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPasses;
+import cleancode.studycafe.practiceday7mission.model.pass.locker.LockerPass;
+import cleancode.studycafe.practiceday7mission.model.pass.locker.LockerPasses;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,13 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import cleancode.studycafe.practice.model.pass.access.AccessPass;
-import cleancode.studycafe.practice.model.pass.access.AccessPassType;
-import cleancode.studycafe.practice.model.pass.access.AccessPasses;
-import cleancode.studycafe.practice.model.pass.locker.LockerPass;
-import cleancode.studycafe.practice.model.pass.locker.LockerPasses;
-
-public class FileHandler {
+public class PassDataReader {
 
     public AccessPasses readAllAccessPasses() {
         try {
@@ -20,7 +19,7 @@ public class FileHandler {
             List<AccessPass> accessPasses = new ArrayList<>();
             for (String line : lines) {
                 String[] values = line.split(",");
-                AccessPassType accessPassType = AccessPassType.valueOf(values[0]);
+                String accessPassType = values[0];
                 int duration = Integer.parseInt(values[1]);
                 int price = Integer.parseInt(values[2]);
                 double discountRate = Double.parseDouble(values[3]);
@@ -41,7 +40,7 @@ public class FileHandler {
             List<LockerPass> lockerPasses = new ArrayList<>();
             for (String line : lines) {
                 String[] values = line.split(",");
-                AccessPassType accessPassType = AccessPassType.valueOf(values[0]);
+                String accessPassType = values[0];
                 int duration = Integer.parseInt(values[1]);
                 int price = Integer.parseInt(values[2]);
 
