@@ -1,4 +1,4 @@
-package cleancode.studycafe.practiceday7mission.exception;
+package cleancode.studycafe.practice.exception;
 
 public class PassDataException extends RuntimeException {
 

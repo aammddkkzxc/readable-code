@@ -1,17 +1,17 @@
-package cleancode.studycafe.practiceday7mission;
+package cleancode.studycafe.practice;
 
-import cleancode.studycafe.practiceday7mission.config.MachineConfig;
-import cleancode.studycafe.practiceday7mission.exception.AppException;
-import cleancode.studycafe.practiceday7mission.exception.PassDataException;
-import cleancode.studycafe.practiceday7mission.io.InputHandler;
-import cleancode.studycafe.practiceday7mission.io.OutputHandler;
-import cleancode.studycafe.practiceday7mission.io.PassDataReader;
-import cleancode.studycafe.practiceday7mission.model.pass.Charge;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPassType;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPasses;
-import cleancode.studycafe.practiceday7mission.model.pass.locker.LockerPass;
-import cleancode.studycafe.practiceday7mission.model.pass.locker.LockerPasses;
+import cleancode.studycafe.practice.config.MachineConfig;
+import cleancode.studycafe.practice.exception.AppException;
+import cleancode.studycafe.practice.exception.PassDataException;
+import cleancode.studycafe.practice.io.InputHandler;
+import cleancode.studycafe.practice.io.OutputHandler;
+import cleancode.studycafe.practice.io.PassDataReader;
+import cleancode.studycafe.practice.model.pass.Charge;
+import cleancode.studycafe.practice.model.pass.access.AccessPass;
+import cleancode.studycafe.practice.model.pass.access.AccessPassType;
+import cleancode.studycafe.practice.model.pass.access.AccessPasses;
+import cleancode.studycafe.practice.model.pass.locker.LockerPass;
+import cleancode.studycafe.practice.model.pass.locker.LockerPasses;
 
 import java.util.List;
 

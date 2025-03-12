@@ -1,6 +1,6 @@
-package cleancode.studycafe.practiceday7mission.config;
+package cleancode.studycafe.practice.config;
 
-import cleancode.studycafe.practiceday7mission.io.*;
+import cleancode.studycafe.practice.io.*;
 
 public class MachineConfig {
 

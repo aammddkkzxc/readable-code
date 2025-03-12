@@ -1,9 +1,9 @@
-package cleancode.studycafe.practiceday7mission;
+package cleancode.studycafe.practice;
 
-import cleancode.studycafe.practiceday7mission.config.MachineConfig;
-import cleancode.studycafe.practiceday7mission.io.ConsoleInputHandler;
-import cleancode.studycafe.practiceday7mission.io.ConsoleOutputHandler;
-import cleancode.studycafe.practiceday7mission.io.PassDataReader;
+import cleancode.studycafe.practice.config.MachineConfig;
+import cleancode.studycafe.practice.io.ConsoleInputHandler;
+import cleancode.studycafe.practice.io.ConsoleOutputHandler;
+import cleancode.studycafe.practice.io.PassDataReader;
 
 public class Application {
 

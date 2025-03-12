@@ -1,9 +1,9 @@
-package cleancode.studycafe.practiceday7mission.model.pass.locker;
+package cleancode.studycafe.practice.model.pass.locker;
 
-import cleancode.studycafe.practiceday7mission.exception.PassDataException;
-import cleancode.studycafe.practiceday7mission.model.pass.Pass;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPassType;
+import cleancode.studycafe.practice.exception.PassDataException;
+import cleancode.studycafe.practice.model.pass.Pass;
+import cleancode.studycafe.practice.model.pass.access.AccessPass;
+import cleancode.studycafe.practice.model.pass.access.AccessPassType;
 
 import java.util.Objects;
 

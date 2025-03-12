@@ -1,7 +1,7 @@
-package cleancode.studycafe.practiceday7mission.model.pass;
+package cleancode.studycafe.practice.model.pass;
 
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
-import cleancode.studycafe.practiceday7mission.model.pass.locker.LockerPass;
+import cleancode.studycafe.practice.model.pass.access.AccessPass;
+import cleancode.studycafe.practice.model.pass.locker.LockerPass;
 
 public class Charge {
 

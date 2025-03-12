@@ -1,6 +1,6 @@
-package cleancode.studycafe.practiceday7mission.model.pass.locker;
+package cleancode.studycafe.practice.model.pass.locker;
 
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
+import cleancode.studycafe.practice.model.pass.access.AccessPass;
 
 import java.util.List;
 

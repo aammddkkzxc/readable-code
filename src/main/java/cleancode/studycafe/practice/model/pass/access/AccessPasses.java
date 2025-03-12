@@ -1,4 +1,4 @@
-package cleancode.studycafe.practiceday7mission.model.pass.access;
+package cleancode.studycafe.practice.model.pass.access;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package cleancode.studycafe.practiceday7mission.io;
+package cleancode.studycafe.practice.io;
 
-import cleancode.studycafe.practiceday7mission.exception.AppException;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPass;
-import cleancode.studycafe.practiceday7mission.model.pass.access.AccessPassType;
+import cleancode.studycafe.practice.exception.AppException;
+import cleancode.studycafe.practice.model.pass.access.AccessPass;
+import cleancode.studycafe.practice.model.pass.access.AccessPassType;
 
 import java.util.List;
 import java.util.Scanner;

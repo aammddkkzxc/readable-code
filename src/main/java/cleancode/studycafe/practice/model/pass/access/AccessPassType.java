@@ -1,7 +1,7 @@
-package cleancode.studycafe.practiceday7mission.model.pass.access;
+package cleancode.studycafe.practice.model.pass.access;
 
-import cleancode.studycafe.practiceday7mission.exception.PassDataException;
-import cleancode.studycafe.practiceday7mission.model.pass.locker.LockerPassType;
+import cleancode.studycafe.practice.exception.PassDataException;
+import cleancode.studycafe.practice.model.pass.locker.LockerPassType;
 
 public enum AccessPassType {
 

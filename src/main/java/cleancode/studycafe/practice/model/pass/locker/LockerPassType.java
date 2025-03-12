@@ -1,4 +1,4 @@
-package cleancode.studycafe.practiceday7mission.model.pass.locker;
+package cleancode.studycafe.practice.model.pass.locker;
 
 public enum LockerPassType {
 
