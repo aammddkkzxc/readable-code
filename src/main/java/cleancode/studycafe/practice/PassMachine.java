@@ -68,21 +68,21 @@ public class PassMachine {
 
     private LockerPass proceedLockerPassSelection(AccessPass selectedAccessPass) {
         LockerPass lockerPassOption = allLockerPasses.findLockerPassBy(selectedAccessPass);
-        checkAndSetUsage(lockerPassOption);
 
-        return lockerPassOption;
+        return checkAndSetUsage(lockerPassOption);
     }
 
-    private void checkAndSetUsage(LockerPass lockerPassOption) {
+    private LockerPass checkAndSetUsage(LockerPass lockerPassOption) {
         if (lockerPassOption.isAvailable()) {
             consoleOutputHandler.askLockerPass(lockerPassOption);
             boolean useLockerPass = consoleInputHandler.decideToUseLockerPass();
 
             if (useLockerPass) {
-                lockerPassOption.startUsing();
+                return LockerPass.ofInUseLockerPass(lockerPassOption);
             }
-
         }
+
+        return lockerPassOption;
     }
 
 }

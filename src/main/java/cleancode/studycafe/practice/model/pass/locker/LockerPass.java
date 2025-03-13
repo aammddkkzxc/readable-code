@@ -14,20 +14,28 @@ public class LockerPass implements Pass {
     private final AccessPassType accessPassType;
     private final int duration;
     private final int price;
-
-    private boolean inUse = false;
+    private final boolean isInUse;
 
     private LockerPass(String accessPassType, int duration, int price) {
         validate(accessPassType, duration, price);
         this.accessPassType = AccessPassType.valueOf(accessPassType);
         this.duration = duration;
         this.price = price;
+        this.isInUse = false;
     }
 
     private LockerPass(AccessPass accessPass) {
         this.accessPassType = accessPass.getAccessPassType();
         this.duration = UNAVAILABLE_PROPERTY;
         this.price = UNAVAILABLE_PROPERTY;
+        this.isInUse = false;
+    }
+
+    private LockerPass(LockerPass lockerPassOption) {
+        this.accessPassType = lockerPassOption.getAccessPassType();
+        this.duration = lockerPassOption.getDuration();
+        this.price = lockerPassOption.getPrice();
+        this.isInUse = true;
     }
 
     public static LockerPass of(String passType, int duration, int price) {
@@ -38,8 +46,8 @@ public class LockerPass implements Pass {
         return new LockerPass(pass);
     }
 
-    public void startUsing() {
-        inUse = true;
+    public static LockerPass ofInUseLockerPass(LockerPass lockerPassOption) {
+        return new LockerPass(lockerPassOption);
     }
 
     @Override
@@ -62,7 +70,7 @@ public class LockerPass implements Pass {
     }
 
     public boolean isInUse() {
-        return inUse;
+        return isInUse;
     }
 
     @Override
@@ -70,12 +78,12 @@ public class LockerPass implements Pass {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LockerPass that = (LockerPass) o;
-        return duration == that.duration && price == that.price && inUse == that.inUse && accessPassType == that.accessPassType;
+        return duration == that.duration && price == that.price && isInUse == that.isInUse && accessPassType == that.accessPassType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accessPassType, duration, price, inUse);
+        return Objects.hash(accessPassType, duration, price, isInUse);
     }
 
     private void validate(String accessPassType, int duration, int price) {
