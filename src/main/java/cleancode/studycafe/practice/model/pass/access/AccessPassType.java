@@ -17,14 +17,6 @@ public enum AccessPassType {
         this.lockerPassType = lockerPassType;
     }
 
-    public static AccessPassType of(String name) {
-        try {
-            return valueOf(name);
-        } catch (IllegalArgumentException e) {
-            throw new PassDataException("check data, AccessPassType not found");
-        }
-    }
-
     public boolean canNotUseLocker() {
         return lockerPassType.isUnavailable();
     }

@@ -58,17 +58,22 @@ public class PassMachine {
 
     private AccessPass proceedAccessPassSelection() {
         consoleOutputHandler.askAccessPassTypeSelection();
+
         AccessPassType selectedAccessPassType = consoleInputHandler.selectAccessPassType();
+        List<AccessPass> accessPassOptions = allAccessPasses.findPassesBy(selectedAccessPassType);
+        consoleOutputHandler.showAccessPassListForSelection(accessPassOptions);
 
-        List<AccessPass> passOptions = allAccessPasses.findPassesBy(selectedAccessPassType);
-
-        consoleOutputHandler.showAccessPassListForSelection(passOptions);
-        return consoleInputHandler.selectAccessPass(passOptions);
+        return consoleInputHandler.selectAccessPass(accessPassOptions);
     }
 
     private LockerPass proceedLockerPassSelection(AccessPass selectedAccessPass) {
         LockerPass lockerPassOption = allLockerPasses.findLockerPassBy(selectedAccessPass);
+        checkAndSetUsage(lockerPassOption);
 
+        return lockerPassOption;
+    }
+
+    private void checkAndSetUsage(LockerPass lockerPassOption) {
         if (lockerPassOption.isAvailable()) {
             consoleOutputHandler.askLockerPass(lockerPassOption);
             boolean useLockerPass = consoleInputHandler.decideToUseLockerPass();
@@ -78,8 +83,6 @@ public class PassMachine {
             }
 
         }
-
-        return lockerPassOption;
     }
 
 }
