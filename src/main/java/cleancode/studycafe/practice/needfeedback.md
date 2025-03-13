@@ -22,6 +22,11 @@
   - duration과 price를 UNAVAILABLE_PROPERTY로 초기화 하는 위치가 적당한지 궁금합니다
   - LockerPass가 LockerPassType을 그냥 가지고 있는 것 도 좋을수 도 있다고 생각되는데 enum에서 enum끼리 관계를 가지고 있는 것과 전자의 방법 중 어느 것이 더 이해나 확장이 편할 지 궁금합니다
 
+- lockerPass를 vo로 만든다고 했는데 상태를 가진다는 것이 모순이라는 생각이 문득 들어서 새로운 객체를 리턴하는 형태로 바꾸어 보았습니다
+  - https://github.com/aammddkkzxc/readable-code/commit/9787f54290904e4eafb4203e368ae81154a63823
+  - 새로운 생성자와 정적 팩토리 메서드가 생겼네요.. 복잡도가 증가한 것 같아 아무래도 Optional을 쓰는 것이 좋을 것 같다고 생각이 드네요..
+  - 생성자와 정적 팩토리 메서드가 많은건 당연히 안좋겠죠..?
+
 ### 그 외에 궁금한 것들
 - 일급 컬렉션 두개를 한 클래스에 넣는 방법은 너무 과할까요? (AccessPasses, LockerPasses 두개를 필드로 갖는 클래스)
   - PassMachine에서 모든 Pass데이터들을 불러들이고 검증하는 과정을 추출하고 싶은데 좋은 방법이 잘 떠오르지 않습니다
