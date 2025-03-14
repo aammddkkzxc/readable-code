@@ -16,38 +16,26 @@ public class LockerPass implements Pass {
     private final int price;
     private final boolean isInUse;
 
-    private LockerPass(String accessPassType, int duration, int price) {
-        validate(accessPassType, duration, price);
-        this.accessPassType = AccessPassType.valueOf(accessPassType);
+    private LockerPass(AccessPassType accessPassType, int duration, int price, boolean isInUse) {
+        this.accessPassType = accessPassType;
         this.duration = duration;
         this.price = price;
-        this.isInUse = false;
+        this.isInUse = isInUse;
     }
 
-    private LockerPass(AccessPass accessPass) {
-        this.accessPassType = accessPass.getAccessPassType();
-        this.duration = UNAVAILABLE_PROPERTY;
-        this.price = UNAVAILABLE_PROPERTY;
-        this.isInUse = false;
+    public static LockerPass of(String accessPassTypeName, int duration, int price) {
+        AccessPassType accessPassType = AccessPassType.validateAndCreateAccessPassTypeFrom(accessPassTypeName);
+        validate(duration, price);
+        return new LockerPass(accessPassType, duration, price, false);
     }
 
-    private LockerPass(LockerPass lockerPassOption) {
-        this.accessPassType = lockerPassOption.getAccessPassType();
-        this.duration = lockerPassOption.getDuration();
-        this.price = lockerPassOption.getPrice();
-        this.isInUse = true;
+    public static LockerPass createUnavailableLockerPassFrom(AccessPass pass) {
+        AccessPassType accessPassType = pass.getAccessPassType();
+        return new LockerPass(accessPassType, UNAVAILABLE_PROPERTY, UNAVAILABLE_PROPERTY, false);
     }
 
-    public static LockerPass of(String passType, int duration, int price) {
-        return new LockerPass(passType, duration, price);
-    }
-
-    public static LockerPass ofUnavailableLockerPass(AccessPass pass) {
-        return new LockerPass(pass);
-    }
-
-    public static LockerPass ofInUseLockerPass(LockerPass lockerPassOption) {
-        return new LockerPass(lockerPassOption);
+    public static LockerPass createLockerPassInUseFrom(LockerPass lockerPassOption) {
+        return new LockerPass(lockerPassOption.getAccessPassType(), lockerPassOption.getDuration(), lockerPassOption.getPrice(), true);
     }
 
     @Override
@@ -86,13 +74,7 @@ public class LockerPass implements Pass {
         return Objects.hash(accessPassType, duration, price, isInUse);
     }
 
-    private void validate(String accessPassType, int duration, int price) {
-        try {
-            AccessPassType.valueOf(accessPassType);
-        } catch (IllegalArgumentException e) {
-            throw new PassDataException("check file, access pass type not found");
-        }
-
+    private static void validate(int duration, int price) {
         if (duration <= 0) {
             throw new PassDataException("check file, duration must be greater than 0");
         }

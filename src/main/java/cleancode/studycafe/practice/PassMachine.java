@@ -71,7 +71,7 @@ public class PassMachine {
             boolean useLockerPass = consoleInputHandler.decideToUseLockerPass();
 
             if (useLockerPass) {
-                return LockerPass.ofInUseLockerPass(lockerPassOption);
+                return LockerPass.createLockerPassInUseFrom(lockerPassOption);
             }
         }
 

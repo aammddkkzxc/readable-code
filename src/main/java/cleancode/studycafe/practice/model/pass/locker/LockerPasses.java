@@ -20,6 +20,6 @@ public class LockerPasses {
         return lockerPasses.stream()
                 .filter(accessPass::matchWithLockerPass)
                 .findFirst()
-                .orElse(LockerPass.ofUnavailableLockerPass(accessPass));
+                .orElse(LockerPass.createUnavailableLockerPassFrom(accessPass));
     }
 }
