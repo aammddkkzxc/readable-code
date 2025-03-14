@@ -13,16 +13,17 @@ public class AccessPass implements Pass {
     private final int price;
     private final double discountRate;
 
-    private AccessPass(String type, int duration, int price, double discountRate) {
-        validate(type, duration, price, discountRate);
-        this.type = AccessPassType.valueOf(type);
+    private AccessPass(AccessPassType type, int duration, int price, double discountRate) {
+        this.type = type;
         this.duration = duration;
         this.price = price;
         this.discountRate = discountRate;
     }
 
-    public static AccessPass of(String passType, int duration, int price, double discountRate) {
-        return new AccessPass(passType, duration, price, discountRate);
+    public static AccessPass of(String typeName, int duration, int price, double discountRate) {
+        AccessPassType accessPassType = AccessPassType.validateAndCreateAccessPassTypeFrom(typeName);
+        validate(duration, price, discountRate);
+        return new AccessPass(accessPassType, duration, price, discountRate);
     }
 
     public boolean isSameTypeWith(AccessPassType passType) {
@@ -66,21 +67,25 @@ public class AccessPass implements Pass {
         return Objects.hash(type, duration, price, discountRate);
     }
 
-    private void validate(String type, int duration, int price, double discountRate) {
-        try {
-            AccessPassType.valueOf(type);
-        } catch (IllegalArgumentException e) {
-            throw new PassDataException("check data, access pass type not found");
-        }
+    private static void validate(int duration, int price, double discountRate) {
+        checkDuration(duration);
+        checkPrice(price);
+        checkDiscountRate(discountRate);
+    }
 
+    private static void checkDuration(int duration) {
         if (duration <= 0) {
             throw new PassDataException("check data, duration must be greater than 0");
         }
+    }
 
+    private static void checkPrice(int price) {
         if (price <= 0) {
             throw new PassDataException("check data, price must be greater than 0");
         }
+    }
 
+    private static void checkDiscountRate(double discountRate) {
         if (discountRate < 0 || discountRate > 1) {
             throw new PassDataException("check data, discountRate must be between 0 and 1");
         }

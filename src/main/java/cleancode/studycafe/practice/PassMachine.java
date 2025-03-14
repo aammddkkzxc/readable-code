@@ -2,7 +2,6 @@ package cleancode.studycafe.practice;
 
 import cleancode.studycafe.practice.config.MachineConfig;
 import cleancode.studycafe.practice.exception.AppException;
-import cleancode.studycafe.practice.exception.PassDataException;
 import cleancode.studycafe.practice.io.InputHandler;
 import cleancode.studycafe.practice.io.OutputHandler;
 import cleancode.studycafe.practice.io.PassDataReader;
@@ -28,14 +27,8 @@ public class PassMachine {
         consoleInputHandler = machineConfig.getInputHandler();
         consoleOutputHandler = machineConfig.getOutputHandler();
 
-        try {
-            allAccessPasses = passDataReader.readAllAccessPasses();
-            allLockerPasses = passDataReader.readLockerPasses();
-        } catch (PassDataException e) {
-            // 데이터 정합성이 틀린채로 어플리케이션이 돌아가면 안된다고 가정하기 위함
-            e.printStackTrace();
-            System.exit(1);
-        }
+        allAccessPasses = passDataReader.readAllAccessPasses();
+        allLockerPasses = passDataReader.readLockerPasses();
     }
 
     public void run() {
