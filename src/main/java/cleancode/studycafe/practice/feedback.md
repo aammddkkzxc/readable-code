@@ -5,6 +5,9 @@
 - AccessPassType도 중요한 객체이다. 해당 객체에 대한 검증 메소드는 그 클래스 내부에서 하는 것이 옳다
 - 해결 : 예외 바꾸는 부분을 AccessPassType로 옮김 & 검증을 정적 팩토리 메소드에서 진행
 
+- 작업한 내용 : 
+https://github.com/aammddkkzxc/readable-code/commit/5a01b29917aa24cbba16d21911e3b1ecd0d2010b
+
 ### 정적 팩토리를 쓰는 이유를 다시 상기하자. 생성자에서 의미 부여를 수행하지 않는다.
 - **LockerPass를 사용할 수 없음**을 표현하기 위해 null, Optional대신 새로운 enum클래스(LockerPassType)로 관리하는 것은 나쁘지 않은 선택일 수 있다.
 - 비지니스 로직이 입장권의 타입(AccessPassType)에 따라 LockerPass가 정해지기 때문에 해당 로직(LockerPasses.findLockerPassBy(~)) 수행 시 발권 불가한 LockerPass를 반환해 줄 필요가 있다(null을 사용하지 않으려면)
@@ -12,6 +15,9 @@
 - 정적 팩토리의 강력한 점은 네이밍을 부여하여 역할을 명확히 할 수 있다는 점이다.
 - 해결 : 발권 불가한 LockerPass에 필요한 값을 할당할 때(UNAVAILABLE_PROPERTY) 생성자에서 해주었는데, 이를 정적 팩토리 메서드 내부에서 하도록 리팩토링했다.
 - 결과적으로 무엇을 위한 생성자들 인지 파악할 필요가 많이 줄어들었다.
+
+- 작업한 내용 : 
+https://github.com/aammddkkzxc/readable-code/commit/3464bf84346c54d4d8705537519943390bf61550
 
 ### 그외의 피드백 내용들
 - get~/set~ 으로 표현되는 메소드는 관용적으로 getter나 setter를 상기시키게 된다. 따라서 해당 접두사를 다른 용도(getter/setter 목적 외)의 메소드 네이밍에서 사용하지 않도록 하자 
