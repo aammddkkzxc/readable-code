@@ -45,6 +45,10 @@ public class StudyCafeSeatPass implements StudyCafePass {
         return price;
     }
 
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
     public boolean canNotUseLocker() {
         return passType.isNotLockerType();
     }
