@@ -1,5 +1,6 @@
-## 주요 내용 정리
-- [google java style guide](https://google.github.io/styleguide/javaguide.html), [Readable Code: 읽기 좋은 코드를 작성하는 사고법](https://www.inflearn.com/course/readable-code-%EC%9D%BD%EA%B8%B0%EC%A2%8B%EC%9D%80%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1%EC%82%AC%EA%B3%A0%EB%B2%95/dashboard), [읽기 좋은 코드가 좋은 코드다](https://product.kyobobook.co.kr/detail/S000001223831)를 학습 후 정리한 내용입니다
+## 프로덕션 코드의 문서화
+- 프로덕션 코드의 명확한 문서화를 위하여 공부한 내용 중 개인적으로 기억하고 싶은 내용을 정리 하였습니다
+- 출처 : [google java style guide](https://google.github.io/styleguide/javaguide.html),  [읽기 좋은 코드가 좋은 코드다](https://product.kyobobook.co.kr/detail/S000001223831), [Readable Code: 읽기 좋은 코드를 작성하는 사고법](https://www.inflearn.com/course/readable-code-%EC%9D%BD%EA%B8%B0%EC%A2%8B%EC%9D%80%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1%EC%82%AC%EA%B3%A0%EB%B2%95/dashboard)
 
 ### 원하는 정보를 찾기 쉽도록 위치 시킨다
 - 임포트 구문, 필드, 생성자, 메소드의 순서
@@ -45,3 +46,6 @@
 - 코드가 특정한 방식으로 작성된 이유(의사 결정 여부)
 - 코드 동작을 세세하게 설명하지 않는다. 도메인 정보와 함축적 표현을 사용한다
 - 정책/버전 정보가 변경 된다면 반드시 잊지 않고 주석을 업데이트 해야한다
+
+### 고찰
+- [정적 팩토리 메서드 컨벤션](https://www.inflearn.com/community/questions/1395703/%EC%A0%95%EC%A0%81-%ED%8C%A9%ED%86%A0%EB%A6%AC-%EB%A9%94%EC%84%9C%EB%93%9C-of-%EC%BB%A8%EB%B2%A4%EC%85%98)
